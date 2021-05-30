@@ -1,0 +1,24 @@
+{
+  "alunos": [
+    {
+      "cpf": "021.145.478-00",
+      "matricula": "20210501",
+      "nome": "Manoel Oscar Freire",
+      "sexo": "m",
+      "dat_nasc": "12/02/1988",
+      "email": "manoel.oscar@hotmail.com",
+      "phone": "+5579998823574",
+      "id": 1
+    },
+    {
+      "cpf": "154.458.789-22",
+      "matricula": "20210502",
+      "nome": "Pedro ",
+      "sexo": "M",
+      "dat_nasc": "11/05/2001",
+      "email": "pedro1@gmail.com",
+      "phone": "(79)9 9936-3663",
+      "id": 2
+    }
+  ]
+}

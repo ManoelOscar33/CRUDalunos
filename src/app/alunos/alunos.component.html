@@ -1,0 +1,410 @@
+<div class="container">
+
+  <div class="d-flex">
+    <h2 style="margin-top: 30px; margin-left: 500px;">
+      Alunos
+    </h2>
+  </div>
+
+  <h3 style="margin-left:16px; margin-bottom: 40px; margin-top: 40px;">
+    Cadastrar Alunos
+  </h3>
+
+  <!--<form>
+    <div>
+      <label for="" class="form-label">CPF</label>
+      <input type="text" class="form-control" [(ngModel)]="aluno.cpf">
+      <div class="form-text"></div>
+    </div>
+    <div>
+      <label for="exampleInputPassword1" class="form-label">Matrícula</label>
+      <input type="text" class="form-control" >
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>-->
+
+  
+  <form class="m-3" [formGroup]="formulario" (ngSubmit)="cadastrar(formulario);"> 
+    <div class="form-group col">
+      <!--Input de template forms<input  
+        type="text"
+        class="form-control" 
+        placeholder="CPF" 
+        autocomplete="off"
+        name="cpf"
+        required
+        minlength="14"
+        maxlength="20"
+        [(ngModel)]="aluno.cpf"
+        #inputCpf="ngModel"
+      >-->
+      <input  
+        type="text"
+        class="form-control" 
+        placeholder="CPF" 
+        autocomplete="off"
+        formControlName="cpf"
+      >
+      <small *ngIf="formulario.get('cpf').valid && formulario.get('cpf').touched" class="form-text text-success">CPF válido.</small>
+      <small *ngIf="!formulario.get('cpf').valid && formulario.get('cpf').touched" class="form-text text-danger">CPF inválido.</small>
+    </div>
+    <div class="form-group col">
+      <!--Input de template forms<input
+        type="text"
+        class="form-control" 
+        placeholder="Matrícula" 
+        autocomplete="off"
+        name="matricula"
+        required
+        minlength="8"
+        maxlength="10"
+        [(ngModel)]="aluno.matricula"
+        #inputMatricula="ngModel"
+      >-->
+      <input
+        type="text"
+        class="form-control" 
+        placeholder="Matrícula" 
+        autocomplete="off"
+        formControlName="matricula"
+      >
+      <small *ngIf="formulario.get('matricula').valid && formulario.get('matricula').touched" class="form-text text-success">Matrícula válida.</small>
+      <small *ngIf="!formulario.get('matricula').valid && formulario.get('matricula').touched" class="form-text text-danger">Matrícula inválida.</small>
+    </div>
+    <div class="form-group col">
+      <!--Input de template forms<input
+        type="text"
+        class="form-control" 
+        placeholder="Nome" 
+        autocomplete="off"
+        name="nome"
+        required
+        minlength="4"
+        maxlength="50"
+        [(ngModel)]="aluno.nome"
+        #inputNome="ngModel"
+      >-->
+      <input
+        type="text"
+        class="form-control" 
+        placeholder="Nome" 
+        autocomplete="off"
+        formControlName="nome"
+      >
+      <small *ngIf="formulario.get('nome').valid && formulario.get('nome').touched" class="form-text text-success">Nome válido.</small>
+      <small *ngIf="!formulario.get('nome').valid && formulario.get('nome').touched" class="form-text text-danger">Nome inválido.</small>
+    </div>
+    <div class="form-group col">
+      <!--Input de template forms<input
+        type="text"
+        class="form-control" 
+        placeholder="Sexo" 
+        autocomplete="off" 
+        name="sexo"
+        required
+        minlength="1"
+        maxlength="9"
+        [(ngModel)]="aluno.sexo"
+        #inputSexo="ngModel"
+      >-->
+      <input
+        type="text"
+        class="form-control" 
+        placeholder="Sexo" 
+        autocomplete="off"
+        formControlName="sexo"
+      >
+      <small *ngIf="formulario.get('sexo').valid && formulario.get('sexo').touched" class="form-text text-success">Sexo válido.</small>
+      <small *ngIf="!formulario.get('sexo').valid && formulario.get('sexo').touched" class="form-text text-danger">Sexo inválido.</small>
+    </div>
+    <div class="form-group col">
+      <!--Input de template forms<input
+        type="text"
+        class="form-control" 
+        placeholder="Data de Nascimento" 
+        autocomplete="off"
+        name="dat_nasc"
+        required
+        minlength="10"
+        maxlength="10"
+        [(ngModel)]="aluno.dat_nasc"
+        #inputDat_nasc="ngModel"
+      >-->
+      <input
+        type="text"
+        class="form-control" 
+        placeholder="Data de Nascimento" 
+        autocomplete="off"
+        formControlName="dat_nasc"
+      >
+      <small *ngIf="formulario.get('dat_nasc').valid && formulario.get('dat_nasc').touched" class="form-text text-success">Data de Nascimento válida.</small>
+      <small *ngIf="!formulario.get('dat_nasc').valid && formulario.get('dat_nasc').touched" class="form-text text-danger">Data de Nascimento inválida.</small>
+    </div>
+    <div class="form-group col">
+      <!--Input de template forms<input
+        type="text"
+        class="form-control" 
+        placeholder="E-mail" 
+        autocomplete="off"
+        name="email"
+        required
+        minlength="10"
+        maxlength="50"
+        [(ngModel)]="aluno.email"
+        #inputEmail="ngModel"
+      >-->
+      <input
+        type="text"
+        class="form-control" 
+        placeholder="E-mail" 
+        autocomplete="off"
+        formControlName="email"
+      >
+      <small *ngIf="formulario.get('email').valid && formulario.get('email').touched" class="form-text text-success">E-mail válido.</small>
+      <small *ngIf="!formulario.get('email').valid && formulario.get('email').touched" class="form-text text-danger">E-mail inválido.</small>
+    </div>
+    <div class="form-group col">
+      <!--Input de template forms<input
+        type="text"
+        class="form-control" 
+        placeholder="Telefone" 
+        autocomplete="off"
+        name="phone"
+        required
+        minlength="14"
+        maxlength="20"
+        [(ngModel)]="aluno.phone"
+        #inputPhone="ngModel"
+      >-->
+      <input
+        type="text"
+        class="form-control" 
+        placeholder="Phone" 
+        autocomplete="off"
+        formControlName="phone"
+      >
+      <small *ngIf="formulario.get('phone').valid && formulario.get('phone').touched" class="form-text text-success">Telefone válido.</small>
+      <small *ngIf="!formulario.get('phone').valid && formulario.get('phone').touched" class="form-text text-danger">Telefone inválido.</small>
+    </div>
+    <div class="form-group col">
+      <button 
+        class="btn btn-primary" 
+        type="submit"
+        >
+        Cadastrar
+      </button>
+    </div>
+  </form>
+
+  <!--
+
+  <div class="container">
+
+    <form [formGroup]="formulario" novalidate (ngSubmit)="cadastrar();">
+  
+      <div class="form-row>
+        <div>
+          <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-link">-</button>
+                1
+                <button type="button" class="btn btn-link">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+  
+        <div class="form-group col">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="CPF" 
+            autocomplete="off"
+            formControlName="cpf"
+          >
+          <small *ngIf="formulario.get('cpf').valid && formulario.get('cpf').touched" class="form-text text-sucess">Ok</small>
+          <small  *ngIf="!formulario.get('cpf').valid && formulario.get('cpf').touched" class="form-text text-danger">CPF inválido</small>
+        </div>
+  
+        <div class="form-group col">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Matrícula" 
+            autocomplete="off"
+            formControlName="matricula"
+          >
+          <small *ngIf="formulario.get('matricula').valid && formulario.get('matricula').touched" class="form-text text-sucess">Ok</small>
+          <small  *ngIf="!formulario.get('matricula').valid && formulario.get('matricula').touched" class="form-text text-danger">Matrícula inválida</small>
+        </div>
+
+        <div class="form-group col">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Nome"
+            autocomplete="off"
+            formControlName="nome" 
+          >
+          <small *ngIf="formulario.get('nome').valid && formulario.get('nome').touched" class="form-text text-sucess">Ok</small>
+          <small *ngIf="!formulario.get('nome').valid && formulario.get('nome').touched" class="form-text text-danger">Nome inválido</small>
+        </div>
+
+        <div class="form-group col">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Sexo"
+            autocomplete="off"
+            formControlName="sexo" 
+          >
+          <small class="form-text text-sucess">Ok</small>
+        </div>
+
+        <div class="form-group col">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Data de Nascimento"
+            autocomplete="off"
+            formControlName="dat_nasc" 
+          >
+          <small class="form-text text-sucess">Ok</small>
+        </div>
+
+        <div class="form-group col">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="E-mail"
+            autocomplete="off"
+            formControlName="email"
+          >
+          <small class="form-text text-sucess">Ok</small>
+        </div>
+
+        <div class="form-group col">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Telefone"
+            autocomplete="off"
+            formControlName="phone"
+          >
+          <small class="form-text text-sucess">Ok</small>
+        </div>
+
+      </div>
+      <div class="form-row">
+        <button 
+          type="submit" 
+          class="btn btn-primary"
+        >Cadastrar</button>
+      </div>
+
+    </form>
+
+    <form novalidate>
+        
+
+      <div class="form-row">
+
+        <div class="form-group col">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Nome" 
+            autocomplete="off" 
+          >
+          <small class="form-text text-success">Ok</small>
+        </div>
+
+        <div class="form-group col">
+          <input 
+            type="email" 
+            class="form-control" 
+            placeholder="E-mail" 
+            autocomplete="off"
+          >
+          <small class="form-text text-success">Ok</small>
+        </div>
+
+        <div class="form-group col-md-6">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Telefone" 
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="form-group col-md-6">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Assunto" 
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="form-group col">
+          <label>Mensagem</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Mensagem" 
+            autocomplete="off"
+          >
+        </div>
+
+      </div>
+
+      <br>
+
+      <button 
+        type="submit" 
+        class="btn btn-primary btn-lg"
+      >Enviar</button>
+
+    </form>
+
+  </div>-->
+
+
+  
+  <table class="table" style="margin-top: 40px; margin-left: 18px;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>CPF</th>
+        <th>Matrícula</th>
+        <th>Nome completo</th>
+        <th>Sexo</th>
+        <th>Data de Nascimento</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aluno of alunos">
+        <td>{{aluno.id}}</td>
+        <td>{{aluno.cpf}}</td>
+        <td>{{aluno.matricula}}</td>
+        <td>{{aluno.nome}}</td>
+        <td>{{aluno.sexo}}</td>
+        <td>{{aluno.dat_nasc}}</td>
+        <td>{{aluno.email}}</td>
+        <td>{{aluno.phone}}</td>
+        <td><button class="btn btn-info" type="button" (click)="atualizar(aluno.id);">Atualizar</button></td>
+        <td><button class="btn btn-danger" type="button" (click)="remover(aluno.id);">Deletar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
